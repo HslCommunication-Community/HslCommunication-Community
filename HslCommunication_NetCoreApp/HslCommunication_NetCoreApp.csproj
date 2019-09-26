@@ -125,6 +125,8 @@
     <Compile Include="..\HslCommunication_Net45\LogNet\Logs\LogNetDateTime.cs" Link="LogNet\Logs\LogNetDateTime.cs" />
     <Compile Include="..\HslCommunication_Net45\LogNet\Logs\LogNetFileSize.cs" Link="LogNet\Logs\LogNetFileSize.cs" />
     <Compile Include="..\HslCommunication_Net45\LogNet\Logs\LogNetSingle.cs" Link="LogNet\Logs\LogNetSingle.cs" />
+    <Compile Include="..\HslCommunication_Net45\ModBus\ModbusAscii\ModbusAscii.cs" Link="ModBus\ModbusAscii\ModbusAscii.cs" />
+    <Compile Include="..\HslCommunication_Net45\ModBus\ModbusRtu\ModbusRtu.cs" Link="ModBus\ModbusRtu\ModbusRtu.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModbusInfo.cs" Link="ModBus\ModbusInfo.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModBusMonitorAddress.cs" Link="ModBus\ModBusMonitorAddress.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModBusState.cs" Link="ModBus\ModBusState.cs" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NETCOREAPP
 using System.Windows.Forms;
 #endif
 using System.IO;
@@ -87,7 +87,7 @@ namespace HslCommunication.BasicFramework
             return str_md5;
         }
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NETCOREAPP
         /// <summary>
         /// 获取内存图片的md5码 -> Get the MD5 code of the memory picture
         /// </summary>
@@ -517,7 +517,7 @@ namespace HslCommunication.BasicFramework
 
         #region Exception Message Format
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0 && !NETCOREAPP3_0
 
         /// <summary>
         /// 显示一个完整的错误信息 ->

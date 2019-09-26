@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel.Design;
 using System.IO.Ports;
 using System.Threading;

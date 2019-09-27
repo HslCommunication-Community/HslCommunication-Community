@@ -240,6 +240,26 @@ namespace HslCommunication.ModBus
         /// <param name="address">地址</param>
         /// <param name="length">长度</param>
         /// <returns>包含结果对象的报文</returns>
+        public OperateResult<byte[]> BuildReadInputRegisterCommand(string address, ushort length)
+        {
+            // 解析富地址
+            OperateResult<ModbusAddress> analysis = ModbusInfo.AnalysisAddress(address, isAddressStartWithZero, ModbusInfo.ReadInputRegister);
+            if (!analysis.IsSuccess) return OperateResult.CreateFailedResult<byte[]>(analysis);
+
+            // 获取消息号
+            ushort messageId = (ushort)softIncrementCount.GetCurrentValue();
+
+            // 生成最终tcp指令
+            byte[] buffer = ModbusInfo.PackCommandToTcp(analysis.Content.CreateReadRegister(station, length), messageId);
+            return OperateResult.CreateSuccessResult(buffer);
+        }
+
+        /// <summary>
+        /// 生成一个读取寄存器的指令头
+        /// </summary>
+        /// <param name="address">地址</param>
+        /// <param name="length">长度</param>
+        /// <returns>包含结果对象的报文</returns>
         private OperateResult<byte[]> BuildReadRegisterCommand( ModbusAddress address, ushort length )
         {
             // 获取消息号
@@ -385,6 +405,11 @@ namespace HslCommunication.ModBus
                 case ModbusInfo.ReadRegister:
                     {
                         command = BuildReadRegisterCommand( address, length );
+                        break;
+                    }
+                case ModbusInfo.ReadInputRegister:
+                    {
+                        command = BuildReadInputRegisterCommand(address, length);
                         break;
                     }
                 default:command = new OperateResult<byte[]>( StringResources.Language.ModbusTcpFunctionCodeNotSupport );break;

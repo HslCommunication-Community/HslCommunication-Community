@@ -171,7 +171,26 @@ namespace HslCommunication.Core.Address
             buffer[5] = BitConverter.GetBytes( length )[0];
             return buffer;
         }
-        
+
+
+        /// <summary>
+        /// 创建一个读取寄存器的字节对象
+        /// </summary>
+        /// <param name="station">读取的站号</param>
+        /// <param name="length">读取数据的长度</param>
+        /// <returns>原始的modbus指令</returns>
+        public byte[] CreateReadInputRegister(byte station, ushort length)
+        {
+            byte[] buffer = new byte[6];
+            buffer[0] = this.Station < 0 ? station : (byte)this.Station;
+            buffer[1] = this.Function < 1 ? ModbusInfo.ReadInputRegister : (byte)this.Function;
+            buffer[2] = BitConverter.GetBytes(this.Address)[1];
+            buffer[3] = BitConverter.GetBytes(this.Address)[0];
+            buffer[4] = BitConverter.GetBytes(length)[1];
+            buffer[5] = BitConverter.GetBytes(length)[0];
+            return buffer;
+        }
+
         /// <summary>
         /// 创建一个写入单个线圈的指令
         /// </summary>

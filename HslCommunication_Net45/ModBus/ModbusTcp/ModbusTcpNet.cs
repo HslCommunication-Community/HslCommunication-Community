@@ -250,7 +250,7 @@ namespace HslCommunication.ModBus
             ushort messageId = (ushort)softIncrementCount.GetCurrentValue();
 
             // 生成最终tcp指令
-            byte[] buffer = ModbusInfo.PackCommandToTcp(analysis.Content.CreateReadRegister(station, length), messageId);
+            byte[] buffer = ModbusInfo.PackCommandToTcp(analysis.Content.CreateReadInputRegister(station, length), messageId);
             return OperateResult.CreateSuccessResult(buffer);
         }
 

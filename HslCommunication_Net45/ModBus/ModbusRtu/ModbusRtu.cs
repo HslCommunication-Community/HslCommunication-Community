@@ -199,6 +199,23 @@ namespace HslCommunication.ModBus
         }
         
         /// <summary>
+        /// 生成一个读取寄存器的指令头
+        /// </summary>
+        /// <param name="address">地址</param>
+        /// <param name="length">长度</param>
+        /// <returns>包含结果对象的报文</returns>
+        public OperateResult<byte[]> BuildReadInputRegisterCommand(string address, ushort length)
+        {
+            OperateResult<ModbusAddress> analysis = ModbusInfo.AnalysisAddress( address, isAddressStartWithZero, ModbusInfo.ReadRegister );
+            if (!analysis.IsSuccess) return OperateResult.CreateFailedResult<byte[]>( analysis );
+            
+            // 生成最终rtu指令
+            byte[] buffer = ModbusInfo.PackCommandToRtu( analysis.Content.CreateReadInputRegister( station, length ) );
+            return OperateResult.CreateSuccessResult( buffer );
+        }
+
+        
+        /// <summary>
         /// 生成一个写入单线圈的指令头
         /// </summary>
         /// <param name="address">地址</param>
@@ -339,6 +356,11 @@ namespace HslCommunication.ModBus
                 case ModbusInfo.ReadRegister:
                     {
                         command = BuildReadRegisterCommand( address, length );
+                        break;
+                    }
+                case ModbusInfo.ReadInputRegister:
+                    {
+                        command = BuildReadInputRegisterCommand(address, length);
                         break;
                     }
                 default: command = new OperateResult<byte[]>( ) { Message = StringResources.Language.ModbusTcpFunctionCodeNotSupport }; break;

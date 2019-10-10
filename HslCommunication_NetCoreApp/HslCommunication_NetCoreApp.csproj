@@ -208,7 +208,6 @@
     <Folder Include="Enthernet\Redis\" />
     <Folder Include="LogNet\Core\" />
     <Folder Include="LogNet\Logs\" />
-    <Folder Include="LogNet\View\" />
     <Folder Include="ModBus\ModbusRtu\" />
     <Folder Include="ModBus\ModbusTcp\" />
     <Folder Include="ModBus\ModbusAscii\" />
@@ -224,7 +223,6 @@
     <Folder Include="Profinet\FATEK\" />
     <Folder Include="Robot\EFORT\" />
     <Folder Include="Language\" />
-    <Folder Include="Instrument\" />
     <Folder Include="Robot\KUKA\" />
     <Folder Include="Robot\YASKAWA\" />
     <Folder Include="Serial\" />

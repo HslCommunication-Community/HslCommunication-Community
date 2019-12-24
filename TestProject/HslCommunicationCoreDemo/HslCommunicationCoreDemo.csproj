@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,9 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="HslCommunication">
-      <HintPath>..\..\HslCommunication_NetStandard\bin\Debug\netstandard2.0\HslCommunication.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\HslCommunication_NetStandard\HslCommunication_NetStandard.csproj" />
   </ItemGroup>
 
 </Project>

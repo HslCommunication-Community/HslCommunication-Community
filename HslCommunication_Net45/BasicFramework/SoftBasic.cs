@@ -479,7 +479,7 @@ namespace HslCommunication.BasicFramework
         {
             if (json.Property( value_name ) != null)
             {
-                return json.Property( value_name ).Value.Value<T>( );
+                return json.Property( value_name ).ToObject<T>( );
             }
             else
             {

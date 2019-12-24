@@ -93,10 +93,10 @@ namespace HslCommunication.BasicFramework
         /// <returns>实际保存的内容</returns>
         public override string ToSaveString()
         {
-            JObject json = new JObject
-            {
-                { TextCode, new JValue(FinalCode) }
-            };
+            var json = JObject.FromObject(
+                new Dictionary<string, string> {
+                    { TextCode, FinalCode }
+                });
             return json.ToString();
         }
         /// <summary>

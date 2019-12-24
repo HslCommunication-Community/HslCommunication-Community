@@ -121,8 +121,6 @@ namespace HslCommunication.Enthernet
             return DownloadFileBase( factory, group, id, fileName, processReport, stream );
         }
 
-#if !NETSTANDARD2_0
-
         /// <summary>
         /// 下载服务器的文件到本地的数据流中
         /// </summary>
@@ -166,8 +164,6 @@ namespace HslCommunication.Enthernet
             stream.Dispose( );
             return result;
         }
-
-#endif
 
         #endregion
 
@@ -243,7 +239,6 @@ namespace HslCommunication.Enthernet
             return UploadFileBase( stream, serverName, factory, group, id, fileTag, fileUpload, processReport );
         }
 
-#if !NETSTANDARD2_0
         /// <summary>
         /// 上传内存图片到服务器操作
         /// </summary>
@@ -284,8 +279,6 @@ namespace HslCommunication.Enthernet
             stream.Dispose( );
             return result;
         }
-#endif
-
         #endregion
 
         #region Private Method

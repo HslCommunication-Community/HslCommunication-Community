@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-
-#if !NETSTANDARD2_0
 using System.Drawing.Drawing2D;
-#endif
 using System.Linq;
 using System.Text;
 
@@ -65,8 +62,6 @@ namespace HslCommunication.Algorithms.Fourier
             return FFT( xreal, new double[xreal.Length] );
         }
 
-
-#if !NETSTANDARD2_0
 
         /// <summary>
         /// 获取FFT变换后的显示图形，需要指定图形的相关参数
@@ -214,9 +209,6 @@ namespace HslCommunication.Algorithms.Fourier
             g.Dispose( );
             return bitmap;
         }
-
-#endif
-
 
         /// <summary>
         /// 快速傅立叶变换

@@ -144,6 +144,8 @@
     <Compile Include="..\HslCommunication_Net45\ModBus\ModbusInfo.cs" Link="ModBus\ModbusInfo.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModBusMonitorAddress.cs" Link="ModBus\ModBusMonitorAddress.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModBusState.cs" Link="ModBus\ModBusState.cs" />
+    <Compile Include="..\HslCommunication_Net45\ModBus\ModbusAscii\ModbusAscii.cs" Link="ModBus\ModbusAscii\ModbusAscii.cs" />
+    <Compile Include="..\HslCommunication_Net45\ModBus\ModbusRtu\ModbusRtu.cs" Link="ModBus\ModbusRtu\ModbusRtu.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModbusTcp\ModbusTcpNet.cs" Link="ModBus\ModbusTcp\ModbusTcpNet.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\ModbusTcp\ModbusTcpServer.cs" Link="ModBus\ModbusTcp\ModbusTcpServer.cs" />
     <Compile Include="..\HslCommunication_Net45\ModBus\MonitorAddress.cs" Link="ModBus\MonitorAddress.cs" />
@@ -179,6 +181,11 @@
     <Compile Include="..\HslCommunication_Net45\Robot\EFORT\ER7BC10Previous.cs" Link="Robot\EFORT\ER7BC10Previous.cs" />
     <Compile Include="..\HslCommunication_Net45\Robot\KUKA\KukaAvarProxyNet.cs" Link="Robot\KUKA\KukaAvarProxyNet.cs" />
     <Compile Include="..\HslCommunication_Net45\Robot\YASKAWA\YRC1000TcpNet.cs" Link="Robot\YASKAWA\YRC1000TcpNet.cs" />
+    <Compile Include="..\HslCommunication_Net45\Serial\CRCSupport.cs" Link="Serial\CRCSupport.cs" />
+    <Compile Include="..\HslCommunication_Net45\Serial\FP1_C72.cs" Link="Serial\FP1_C72.cs" />
+    <Compile Include="..\HslCommunication_Net45\Serial\SerialBase.cs" Link="Serial\SerialBase.cs" />
+    <Compile Include="..\HslCommunication_Net45\Serial\SerialDeviceBase.cs" Link="Serial\SerialDeviceBase.cs" />
+    <Compile Include="..\HslCommunication_Net45\Serial\SoftLRC.cs" Link="Serial\SoftLRC.cs" />
     <Compile Include="..\HslCommunication_Net45\StringResources.cs" Link="StringResources.cs" />
   </ItemGroup>
 
@@ -188,6 +195,9 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0" />
+    <PackageReference Include="System.IO.Ports" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -233,6 +243,7 @@
     <Folder Include="Instrument\" />
     <Folder Include="Robot\KUKA\" />
     <Folder Include="Robot\YASKAWA\" />
+    <Folder Include="Serial\" />
   </ItemGroup>
 
 </Project>

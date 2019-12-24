@@ -9,10 +9,7 @@ using System.Net.Sockets;
 using HslCommunication.Core.IMessage;
 using HslCommunication.Core.Address;
 using HslCommunication.BasicFramework;
-
-#if !NETSTANDARD2_0
 using System.IO.Ports;
-#endif
 
 namespace HslCommunication.ModBus
 {
@@ -52,9 +49,7 @@ namespace HslCommunication.ModBus
             ByteTransform            = new ReverseWordTransform( );
             WordLength               = 1;
 
-#if !NETSTANDARD2_0
             serialPort               = new SerialPort( );
-#endif
         }
 
         #endregion
@@ -840,8 +835,6 @@ namespace HslCommunication.ModBus
 
         #region Serial Support
 
-#if !NETSTANDARD2_0
-
         private SerialPort serialPort;            // 核心的串口对象
 
         /// <summary>
@@ -959,8 +952,6 @@ namespace HslCommunication.ModBus
                 LogNet?.WriteWarn( "CRC Check Failed : " + SoftBasic.ByteToHexString( receive, ' ' ) );
             }
         }
-
-#endif
 
         #endregion
 

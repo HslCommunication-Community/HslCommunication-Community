@@ -87,7 +87,6 @@ namespace HslCommunication.BasicFramework
             return str_md5;
         }
 
-#if !NETSTANDARD2_0 && !NETCOREAPP
         /// <summary>
         /// 获取内存图片的md5码 -> Get the MD5 code of the memory picture
         /// </summary>
@@ -106,7 +105,6 @@ namespace HslCommunication.BasicFramework
             ms.Dispose();
             return BitConverter.ToString(bytes_md5).Replace("-", "");
         }
-#endif
 
         #endregion
 

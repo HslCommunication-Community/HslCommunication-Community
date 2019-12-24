@@ -10,7 +10,7 @@ using System.Net;
 using HslCommunication.Core.IMessage;
 using HslCommunication.BasicFramework;
 
-#if (NET451 || NETSTANDARD2_0 || NETCOREAPP)
+#if !NET35
 using System.Threading.Tasks;
 #endif
 

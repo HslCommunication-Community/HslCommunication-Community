@@ -1,14 +1,11 @@
-﻿
-#if !NETSTANDARD2_0
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-#if NET45
+#if !NET35
 using System.Threading.Tasks;
 #endif
 
@@ -238,6 +235,3 @@ namespace HslCommunication.BasicFramework
 
     }
 }
-
-
-#endif

@@ -4,9 +4,7 @@ using HslCommunication.Core.IMessage;
 using HslCommunication.Core.Net;
 using System;
 using System.Collections.Generic;
-#if !NETSTANDARD2_0
 using System.IO.Ports;
-#endif
 using System.Net.Sockets;
 using System.Text;
 
@@ -33,9 +31,7 @@ namespace HslCommunication.Profinet.LSIS
             WordLength = 2;
             ByteTransform = new RegularByteTransform();
 
-#if !NETSTANDARD2_0
             serialPort = new SerialPort();
-#endif
         }
 
         #endregion
@@ -376,8 +372,6 @@ namespace HslCommunication.Profinet.LSIS
 
         #region Serial Support
         private int station = 1;
-#if !NETSTANDARD2_0
-
         private SerialPort serialPort;            // 核心的串口对象
 
         /// <summary>
@@ -568,8 +562,6 @@ namespace HslCommunication.Profinet.LSIS
             
             return result.ToArray();
         }
-
-#endif
 
         #endregion
 

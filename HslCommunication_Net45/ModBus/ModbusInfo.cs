@@ -98,8 +98,6 @@ namespace HslCommunication.ModBus
             return buffer;
         }
 
-#if !NETSTANDARD2_0
-
         /// <summary>
         /// 将modbus指令打包成Modbus-Rtu指令
         /// </summary>
@@ -160,8 +158,6 @@ namespace HslCommunication.ModBus
                 return new OperateResult<byte[]>( ) { Message = ex.Message + BasicFramework.SoftBasic.ByteToHexString( value ) };
             }
         }
-
-#endif
 
         /// <summary>
         /// 分析Modbus协议的地址信息，该地址适应于tcp及rtu模式

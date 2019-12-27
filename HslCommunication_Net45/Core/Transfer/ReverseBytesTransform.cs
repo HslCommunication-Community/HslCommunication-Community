@@ -51,7 +51,7 @@ namespace HslCommunication.Core
             byte[] tmp = new byte[2];
             tmp[0] = buffer[1 + index];
             tmp[1] = buffer[0 + index];
-            return BitConverter.ToInt16( tmp, 0 );
+            return BitConverter.ToInt16( ByteTransDataFormat2(tmp), 0 );
         }
         
         /// <summary>
@@ -65,7 +65,7 @@ namespace HslCommunication.Core
             byte[] tmp = new byte[2];
             tmp[0] = buffer[1 + index];
             tmp[1] = buffer[0 + index];
-            return BitConverter.ToUInt16( tmp, 0 );
+            return BitConverter.ToUInt16( ByteTransDataFormat2( tmp ), 0 );
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace HslCommunication.Core
             {
                 byte[] tmp = BitConverter.GetBytes( values[i] );
                 Array.Reverse( tmp );
-                tmp.CopyTo( buffer, 2 * i );
+                ByteTransDataFormat2(tmp).CopyTo( buffer, 2 * i );
             }
 
             return buffer;
@@ -220,7 +220,7 @@ namespace HslCommunication.Core
             {
                 byte[] tmp = BitConverter.GetBytes( values[i] );
                 Array.Reverse( tmp );
-                tmp.CopyTo( buffer, 2 * i );
+                ByteTransDataFormat2(tmp).CopyTo( buffer, 2 * i );
             }
 
             return buffer;

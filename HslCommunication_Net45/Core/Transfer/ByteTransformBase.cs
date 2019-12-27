@@ -94,7 +94,7 @@ namespace HslCommunication.Core
         /// <returns>short对象</returns>
         public virtual short TransInt16( byte[] buffer, int index )
         {
-            return BitConverter.ToInt16( buffer, index );
+            return BitConverter.ToInt16(ByteTransDataFormat2(buffer, index), 0);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace HslCommunication.Core
         /// <returns>ushort对象</returns>
         public virtual ushort TransUInt16( byte[] buffer, int index )
         {
-            return BitConverter.ToUInt16( buffer, index );
+            return BitConverter.ToUInt16( ByteTransDataFormat2( buffer, index ), 0 );
         }
 
         /// <summary>
@@ -394,7 +394,7 @@ namespace HslCommunication.Core
             byte[] buffer = new byte[values.Length * 2];
             for (int i = 0; i < values.Length; i++)
             {
-                BitConverter.GetBytes( values[i] ).CopyTo( buffer, 2 * i );
+                ByteTransDataFormat2(BitConverter.GetBytes(values[i])).CopyTo( buffer, 2 * i );
             }
             return buffer;
         }
@@ -423,7 +423,7 @@ namespace HslCommunication.Core
             byte[] buffer = new byte[values.Length * 2];
             for (int i = 0; i < values.Length; i++)
             {
-                BitConverter.GetBytes( values[i] ).CopyTo( buffer, 2 * i );
+                ByteTransDataFormat2(BitConverter.GetBytes(values[i])).CopyTo( buffer, 2 * i );
             }
 
             return buffer;
@@ -618,6 +618,35 @@ namespace HslCommunication.Core
         #endregion
 
         #region DataFormat Support
+
+        /// <summary>
+        /// 反转双字节的数据信息
+        /// </summary>
+        /// <param name="value">数据字节</param>
+        /// <param name="index">起始索引，默认值为0</param>
+        /// <returns>实际字节信息</returns>
+        protected byte[] ByteTransDataFormat2(byte[] value, int index = 0)
+        {
+            byte[] buffer = new byte[2];
+            switch (DataFormat)
+            {
+                case DataFormat.CDAB:
+                case DataFormat.ABCD:
+                    {
+                        buffer[0] = value[index + 1];
+                        buffer[1] = value[index + 0];
+                        break;
+                    }
+                case DataFormat.DCBA:
+                case DataFormat.BADC:
+                    {
+                        buffer[0] = value[index + 0];
+                        buffer[1] = value[index + 1];
+                        break;
+                    }
+            }
+            return buffer;
+        }
 
         /// <summary>
         /// 反转多字节的数据信息

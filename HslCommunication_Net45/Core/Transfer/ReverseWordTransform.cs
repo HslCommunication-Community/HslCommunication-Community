@@ -105,7 +105,7 @@ namespace HslCommunication.Core
         /// <returns>ushort对象</returns>
         public override ushort TransUInt16( byte[] buffer, int index )
         {
-            return base.TransUInt16( ReverseBytesByWord( buffer, index, 2 ), 0 );
+            return base.TransUInt16(ReverseBytesByWord( buffer, index, 2 ), 0 );
         }
 
         
